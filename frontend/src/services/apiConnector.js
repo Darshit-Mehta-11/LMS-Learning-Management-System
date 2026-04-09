@@ -1,0 +1,15 @@
+import axios from "axios"
+
+export const axiosInstance = axios.create({});
+
+export const apiConnector = (method, url, bodyData, headers, params) => {
+    // console.log("DEBUG: apiConnector - Request:", method, url);
+    // console.log("DEBUG: apiConnector - Headers:", headers);
+    return axiosInstance({
+        method: `${method}`,
+        url: `${url}`,
+        data: bodyData ? bodyData : null,
+        headers: headers ? headers : null,
+        params: params ? params : null,
+    });
+}
